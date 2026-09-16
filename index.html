@@ -105,11 +105,11 @@ aside{background:var(--surface);border:1px solid var(--line);border-radius:14px;
     </div>
     <div class="group"><label for="b-none" data-t="basemap">Підкладка</label>
       <div class="seg" role="group" id="seg-base">
-        <button id="b-none" data-b="none" aria-pressed="true"></button>
+        <button id="b-none" data-b="none" aria-pressed="false"></button>
         <button id="b-positron" data-b="positron" aria-pressed="false"></button>
         <button id="b-voyager" data-b="voyager" aria-pressed="false"></button>
         <button id="b-dark" data-b="dark" aria-pressed="false"></button>
-        <button id="b-sat" data-b="sat" aria-pressed="false"></button>
+        <button id="b-sat" data-b="sat" aria-pressed="true"></button>
       </div>
     </div>
   </div>
@@ -289,7 +289,7 @@ document.getElementById("list").addEventListener("click", e => {
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", refresh);
 
 selected = [...names].sort((a,b) => val(b) - val(a))[0];
-refresh();
+setBase("sat");   // підкладка за замовчуванням — супутник (setBase сам викликає refresh)
 </script>
 </body>
 </html>
